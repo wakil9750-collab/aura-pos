@@ -1,4 +1,4 @@
-# Aura POS
+# Aura POS1
 
 Restaurant & café point-of-sale app built with React, TanStack Start, Vite and Supabase.
 
