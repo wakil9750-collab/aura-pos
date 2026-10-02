@@ -1,0 +1,11 @@
+# Architecture rules
+- All business-critical writes (orders, payments, stock) go through SECURITY DEFINER SQL functions — keeps them transactional and idempotent.
+- Inventory consumption is recorded once per order in order_inventory_consumption (unique order_id + unique reference) — prevents double deduction/reversal.
+- Settings live as JSONB sections in business_settings and are applied as CSS variables at runtime — no hardcoded colors.
+- Public customer QR access only via token-checked RPCs (get_public_menu, place_qr_order) — no anon table policies.
+- Inventory tests live in supabase/tests/ and run inside a rolled-back transaction.
+- Business suspension is enforced by the zz_guard_active trigger on all business-scoped write tables (business_is_active) — UI blocking alone is not trusted.
+- Billing fields on businesses and business_settings.powered_by are protected by triggers; only platform admins change them.
+- Aura system branding uses bundled logo assets while restaurant logos remain tenant-configurable — separates platform identity from each venue's identity.
+- Display mode and interface language are device preferences layered over tenant defaults — staff can switch instantly without changing restaurant-wide settings.
+- Public AI menu recommendations re-fetch the token-scoped menu on the server and never trust browser-supplied menu data — prevents cross-restaurant or fabricated recommendations.

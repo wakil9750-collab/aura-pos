@@ -1,0 +1,13 @@
+# Roadmap
+- [x] Database, business logic, RLS
+- [x] All staff screens (POS, orders, bar/kitchen, tables, menu, recipes, inventory, staff, reports, settings)
+- [x] Customer QR ordering page
+- [x] Inventory engine test suite (supabase/tests/inventory_engine.sql) — 11/11 pass
+- [ ] Review security warnings on database functions (waiting on user go-ahead)
+- [x] Powered by controlled by platform developer only (not restaurant)
+- [x] Developer full control: plans, home pricing, real suspension, owner billing page, owner info + custom fields
+- [x] Aura branding: system name, logo, favicon and black/electric-purple identity
+- [x] Light/dark mode switch available to every signed-in user
+- [x] Arabic/English language switch with RTL layout
+- [x] Package-size inventory tracking and remaining package-fraction display
+- [x] AI menu recommendations from customer tastes and dietary needs, with clear suitability reasons
